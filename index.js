@@ -50,4 +50,4 @@ let commandfile = bot.commands.get(cmd.slice(prefix.length));
 if(commandfile) commandfile.run(bot,message,args);
 
 })
-bot.login(botconfig.token);
+bot.login(process.env.BOT_TOKEN);
