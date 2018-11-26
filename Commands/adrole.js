@@ -4,6 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
   //!addrole @andrew Dog Person
   if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Sueña, LoL.");
+  if(!message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return message.reply("Sueña, LoL.");
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if(!rMember) return message.reply("Usuario no encontrado.");
   let role = args.join(" ").slice(22);
