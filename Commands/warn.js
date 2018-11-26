@@ -6,7 +6,7 @@ let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 module.exports.run = async (bot, message, args) => {
 
 
-	if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No puedes hacer eso");
+	if(!message.member.hasPermission("BAN_MEMBERS" || "KICK_MEMBERS")) return message.reply("No puedes hacer eso");
 	let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 	if(!wUser) return message.reply("Usuario no encontrado");
 	//if(wUser.hasPermission("ADMINISTRATOR")) return message.reply(`<@${wUser.id}> es demasiado poderoso D:`);
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
 	if(!warns[wUser.id]) warns[wUser.id] = {
 		warns: 0
-	}	
+	}
 
 	warns[wUser.id].warns++;
 
