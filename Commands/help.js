@@ -28,6 +28,8 @@ module.exports.run = async (bot, message, err) =>{
 		.setDescription("Comandos de <@308352017263493125>")
 		.addField("Test",`${prefix}t`)
 		.addField("Id",`${prefix}id`)
+		.addField("Apagar",`${prefix}shutdown`)
+		.addField("Reiniciar",`${prefix}reset (No funciona)`)
 
 		message.channel.send(Embed3);
 		message.channel.send(Embed2);
