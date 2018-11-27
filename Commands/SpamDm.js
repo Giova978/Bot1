@@ -20,9 +20,8 @@ module.exports.run = async (bot, message, args) => {
 }catch{
   message.channel.send(`<@${sUser.id}>,${mensaje}.Tienes los dms bloqueados`);
 }
-message.reply("Listo, spam echo");
 };
-
+message.reply("Listo, spam echo");
 };
 
 module.exports.help = {
