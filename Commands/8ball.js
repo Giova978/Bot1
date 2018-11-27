@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
 
 	if(!args[2]) return message.reply("Porfavor has una pregunta completa");
-	let rplies = ["Sí.","No.", "No lo sé.", "Tal vez.", "Pregunta mas tarde."];
+	let rplies = ["Sí.","No.", "No lo sé.", "Tal vez."];
 
 	let result = Math.floor((Math.random() * rplies.length));
 	let quest = args.slice(0).join(" ");
@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 
 	message.channel.send(Embed);
 
-}	
+}
 
 
 module.exports.help = {
