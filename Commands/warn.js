@@ -42,9 +42,9 @@ if(!warnC) return message.reply("Canal no encontrado");
  	if(!muterole) return message.reply("Debes crear el rol");
 
 	let base = 5
- 	let	muteT = base*warns[wUser.id].warns;
+ 	let	muteT = base*warns[wUser.id].warns + "m";
  	await(wUser.addRole(muterole.id));
- 	message.channel.send(`<@${wUser.id}> fue temporalmente muteado`);
+ 	message.channel.send(`<@${wUser.id}> fue temporalmente muteado por ${muteT}`);
 
  	setTimeout(function(){
  		wUser.removeRole(muterole.id)
