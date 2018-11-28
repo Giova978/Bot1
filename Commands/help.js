@@ -24,6 +24,7 @@ module.exports.run = async (bot, message, err) =>{
 		.addField("Reporte",`${prefix}report <@Usuario> <Razón>`)
 		.addField("Chiste",`${prefix}chiste`)
 		.addField("Spam Dm",`${prefix}spam <@Usuario> <Cantidad(99 max.) <Mensaje>`)
+		.addField("+18",`${prefix}18 <@Usuario>`)
 
 		let Embed3 = new Discord.RichEmbed()
 		.setColor("#ff0000")
