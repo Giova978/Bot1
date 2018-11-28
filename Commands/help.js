@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, err) =>{
 		let Embed2 = new Discord.RichEmbed()
 		.setColor("#17f40c")
 		.setDescription("Comandos de Usuarios")
-		.addField("Pregunta al Thortilla",`${prefix}pa <Pregunta>`)
+		.addField("Pregunta a Thortilla",`${prefix}pa <Pregunta>`)
 		.addField("Ayuda",`${prefix}help`)
 		.addField("Reporte",`${prefix}report <@Usuario> <Razón>`)
 		.addField("Chiste",`${prefix}chiste`)
