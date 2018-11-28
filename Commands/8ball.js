@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
 
 	if(!args[2]) return message.reply("Porfavor has una pregunta completa");
-	let rplies = ["Sí.","No.", "No lo sé.", "Tal vez."];
+	let rplies = ["Sí.","No.", "No lo sé.", "Tal vez.","No te respondere eso, pesao."];
 
 	let result = Math.floor((Math.random() * rplies.length));
 	let quest = args.slice(0).join(" ");
@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
 	.setAuthor(message.author.tag)
 	.setColor("#f71d1d")
 	.addField("Pregunta:", quest)
-	.addField("Answer", rplies[result]);
+	.addField("Respuesta", rplies[result]);
 
 	message.channel.send(Embed);
 
