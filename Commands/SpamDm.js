@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
   break;//message.channel.send(`<@${sUser.id}>,${mensaje}.Tienes los dms bloqueados`);
 }
 };
-if(r === 1){
+if(r === 0){
 message.reply("Listo, spam echo");
 };
 };
