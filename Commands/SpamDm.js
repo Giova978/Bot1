@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
 }
 };
 if(r === 0){
-message.reply("Listo, spam echo");
+message.reply("Listo, spam realizado");
 };
 };
 
