@@ -37,11 +37,12 @@ if(!warnC) return message.reply("Canal no encontrado");
 
  warnC.send(warnE);
 
- if(warns[wUser.id].warns >= 2){
+ if(warns[wUser.id].warns >= 1){
  	let muterole = message.guild.roles.find(`name`,"muted");
  	if(!muterole) return message.reply("Debes crear el rol");
 
- 	let	muteT = "10m";
+	let base = 5
+ 	let	muteT = base*warns[wUser.id].warns;
  	await(wUser.addRole(muterole.id));
  	message.channel.send(`<@${wUser.id}> fue temporalmente muteado`);
 
