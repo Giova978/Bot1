@@ -8,8 +8,8 @@ module.exports.run = async (bot, message, err) =>{
 		let Embed = new Discord.RichEmbed()
 		.setColor("#17f40c")
 		.setDescription("Comandos de Mods")
-		.addField("Añadir Rol", `${prefix}adrole <Nombre del rol>`)
-		.addField("Remover Rol", `${prefix}rerole <Nombre del rol>`)
+		.addField("Añadir Rol", `${prefix}adrole <@Usuario> <Nombre del rol>`)
+		.addField("Remover Rol", `${prefix}rerole <@Usuario> <Nombre del rol>`)
 		.addField("Ban", `${prefix}ban <@Usuario> <Razón>`)
 		.addField("Kick", `${prefix}kick <@Usuario> <Razón>`)
 		.addField("Tempmute", `${prefix}tempmute <@Usuario> <Tiempo> <Razón(Opcional)> Ej: ${prefix}tempmute @Usuario 10s Test`)
@@ -19,9 +19,11 @@ module.exports.run = async (bot, message, err) =>{
 		let Embed2 = new Discord.RichEmbed()
 		.setColor("#17f40c")
 		.setDescription("Comandos de Usuarios")
-		.addField("8Ball",`${prefix}8ball <Pregunta>`)
+		.addField("Pregunta al Thortilla",`${prefix}pa <Pregunta>`)
 		.addField("Ayuda",`${prefix}help`)
 		.addField("Reporte",`${prefix}report <@Usuario> <Razón>`)
+		.addField("Chiste",`${prefix}chiste`)
+		.addField("Spam Dm",`${prefix}spam <@Usuario> <Cantidad(99 max.) <Mensaje>`)
 
 		let Embed3 = new Discord.RichEmbed()
 		.setColor("#ff0000")
@@ -30,6 +32,7 @@ module.exports.run = async (bot, message, err) =>{
 		.addField("Id",`${prefix}id`)
 		.addField("Apagar",`${prefix}shutdown`)
 		.addField("Reiniciar",`${prefix}reset (No funciona)`)
+		.addField("Limpiar Chat",`${prefix}clear <Cantidad de mensajes(max.100)>`)
 
 		message.channel.send(Embed3);
 		message.channel.send(Embed2);
