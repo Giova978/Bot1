@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
   //if(message.author.id != "308352017263493125")return message.reply(`Comando en pruebas, solo <@308352017263493125>`);
+  let r = 0;
   let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!sUser)return message.reply("Usuario no encontrado");
   if(sUser.id === "308352017263493125")return message.reply("No puedes hacerle eso a mi creador");
@@ -18,10 +19,14 @@ module.exports.run = async (bot, message, args) => {
     try{
   await sUser.send(mensaje);
 }catch{
+  message.reply(`<@${sUser.id}> tiene bloqueados los DM.`);
+  r = 1;
   break;//message.channel.send(`<@${sUser.id}>,${mensaje}.Tienes los dms bloqueados`);
 }
 };
+if(r === 1){
 message.reply("Listo, spam echo");
+};
 };
 
 module.exports.help = {
