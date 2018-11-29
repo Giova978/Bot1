@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 if(!message.member.hasPermission("KICK_MEMBERS" || "ADMINISTRATOR" || "BAN_MEMBERS")) return message.reply("Sueña, LoL");
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return message.reply("Usuario no encontrado");
- // if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("No lo puedes mutear");
+  if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("No lo puedes mutear");
   let muterole = message.guild.roles.find(`name`, "muted");
   //start of create role
   if(!muterole){
