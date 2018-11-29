@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
   if(!args[0])return message.channel.send("Especifica la cantidad");
   message.channel.bulkDelete(args[0]).then(() =>
 message.channel.send(`Eliminados ${args[0]} mensajes`));
+message.channel.bulkDelete(1);
 //message.delete().catch();
 }
 

@@ -1,9 +1,9 @@
 const Discord = require("discord.js")
 const fs = require("fs")
-let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+//let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 
 module.exports.run = async (bot, message, err) =>{
-	let prefix = prefixes[message.guild.id].prefixes;
+	let prefix = "!";
 
 		let Embed = new Discord.RichEmbed()
 		.setColor("#17f40c")
