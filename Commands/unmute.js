@@ -7,6 +7,7 @@ module.exports.run = async (bot, message, args) => {
   if(!user)return message.reply("Usuario no encontrado");
   if(!user.roles.has(mRole.id))return message.reply("No esta muteado");
   user.removeRole(mRole);
+  message.reply("Listo, usuario desmuteado");
 }
 
 module.exports.help = {
