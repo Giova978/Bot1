@@ -10,8 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2",
+    "get-youtube-id": "^1.0.0",
     "nexe": "^3.0.0-beta.7",
     "opusscript": "0.0.6",
+    "request": "^2.88.0",
     "ytdl-core": "^0.28.0"
   }
 }
