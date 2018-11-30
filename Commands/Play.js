@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const ytdl = require("ytdl-core");
-const request = reqduire("request");
+const request = require("request");
 const fs = require("fs");
 const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
@@ -78,7 +78,7 @@ function isYoutube(str) {
                        guilds[message.guild.id].queueNames.push(videoInfo.title);
                    });
                });
-             }lse {
+             }else {
                 isPlaying = true;
                 getID(args, function(id) {
                     guilds[message.guild.id].quedue.push(id);

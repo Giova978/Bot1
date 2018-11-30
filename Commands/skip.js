@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const ytdl = require("ytdl-core");
-const request = reqduire("request");
+const request = require("request");
 const fs = require("fs");
 const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
