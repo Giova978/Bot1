@@ -27,7 +27,7 @@ fs.readdir("./Commands", (err, files) => {
 bot.on("ready", async () =>{
 	console.log(`${bot.user.username} is online`);
 	//bot.user.setActivity("HA")
-	bot.user.setActivity("on SourceCode!");
+	bot.user.setActivity("en el Codigo Fuente ;D");
 });
 bot.on("message", async message => {
 	if(message.author.bot) return;
@@ -50,4 +50,11 @@ let commandfile = bot.commands.get(cmd.slice(prefix.length));
 if(commandfile) commandfile.run(bot,message,args);
 
 })
-bot.login(process.env.BOT_TOKEN);
+
+bot.on("guildMemberAdd", member =>{
+//	try{
+	let role = member.guild.roles.find('name', "User");
+//catch{};
+	member.addRole(role)
+});
+bot.login(botconfig.token);
