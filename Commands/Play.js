@@ -4,8 +4,28 @@ const request = require("request");
 const fs = require("fs");
 const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
+const botconfig = require("../botconfig.json");
+const safeJsonStringify = require('safe-json-stringify');
+let yt_api_key = botconfig.yt_api_key;
+//let guilds = JSON.parse(fs.readFileSync("./guild.json", "utf8"));
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args,guilds) => {
+  //   var guilds = guilds;
+  if (!guilds[message.guild.id]) {
+       guilds[message.guild.id] = {
+           queue: [],
+           queueNames: [],
+           isPlaying: false,
+           dispatcher: null,
+           voiceChannel: null,
+           skipReq: 0,
+           skippers: [],
+       };
+   };
+
+  /* fs.writeFile("./guild.json", safeJsonStringify(guilds), (err) =>{
+     if(err)  console.log(err);
+   });*/
   function playMusic(id, message) {
     guilds[message.guild.id].voiceChannel = message.member.voiceChannel;
 
@@ -38,21 +58,21 @@ module.exports.run = async (bot, message, args) => {
 };
 
 function getID(str, cb) {
-    if (isYoutube(str)) {
+  if (isYoutube(str)) {
         cb(getYouTubeID(str));
-    } else {
-        search_vsideo(str, function(id) {
-            cb(id);
-        });
-    }
+  } else {
+      search_video(str, function(id) {
+          cb(id);
+      });
+}
 };
 
 function add_to_queue(strID, message) {
-    if (isYoutube(strID)) {
+ if (isYoutube(strID)) {
         guilds[message.guild.id].queue.push(getYouTubeID(strID));
-    } else {
-        guilds[message.guild.id].queue.push(strID);
-    }
+ } else {
+ guilds[message.guild.id].queue.push(strID);
+ }
 };
 
 function search_video(query, callback) {
@@ -60,19 +80,22 @@ function search_video(query, callback) {
         var json = JSON.parse(body);
         if (!json.items[0]) callback("3_-a9nVZYjk");
         else {
-            callback(jsonf.items[0].id.videoId);
+            callback(json.items[0].id.videoId);
         }
     });
 };
 
 function isYoutube(str) {
-    return str.toLowerCase().indexOf("youtube.com") > -1;
+    let st = str.toString();
+    let s = st.toLowerCase();
+    let r = s.indexOf("youtube.com") > -1;
+    return r;
 };
-  if (message.member.voidceChannel || guilds[message.guild.id].voiceChannel != null) {
-           if (guilds[message.guild.id].queue.length > 0 || guilds[mefssage.guild.id].isPlaying) {
+  if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
+           if (guilds[message.guild.id].queue.length > 0 || guilds[message.guild.id].isPlaying) {
                getID(args, function(id) {
                    add_to_queue(id, message);
-                   fetchVideoInfo(id, function(err, vifdeoInfo) {
+                   fetchVideoInfo(id, function(err, videoInfo) {
                        if (err) throw new Error(err);
                        message.reply(" added to queue: **" + videoInfo.title + "**");
                        guilds[message.guild.id].queueNames.push(videoInfo.title);
@@ -81,12 +104,12 @@ function isYoutube(str) {
              }else {
                 isPlaying = true;
                 getID(args, function(id) {
-                    guilds[message.guild.id].quedue.push(id);
+                    guilds[message.guild.id].queue.push(id);
                     playMusic(id, message);
                     fetchVideoInfo(id, function(err, videoInfo) {
                         if (err) throw new Error(err);
                         guilds[message.guild.id].queueNames.push(videoInfo.title);
-                        message.redply(" now playing: **" + videoInfo.title + "**");
+                        message.reply(" now playing: **" + videoInfo.title + "**");
                     });
                 });
             }
