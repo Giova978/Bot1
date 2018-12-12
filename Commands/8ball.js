@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
 
 	if(!args[2]) return message.reply("Porfavor has una pregunta completa");
-	let rplies = ["Sí.","No.", "No lo sé.", "Tal vez.","No te respondere eso, pesao."];
+	let rplies = ["Sí.","No.", "Tal vez."];
 
 	let result = Math.floor((Math.random() * rplies.length));
 	let quest = args.slice(0).join(" ");
