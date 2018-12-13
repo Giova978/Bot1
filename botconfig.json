@@ -1,2 +1,3 @@
-{"token":".DsdhNw.-i7UoqVQ",
-"prefix":"!"}
+{"token": process.env.BOT_TOKEN,
+"prefix":"!",
+"ytkey": process.env.YT_TOKEN}
