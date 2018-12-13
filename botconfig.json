@@ -1,3 +1,4 @@
-{"token": process.env.BOT_TOKEN,
+{"token": "",
 "prefix":"!",
-"yt_api_key": process.env.YT_TOKEN}
+"yt_api_key": ""
+}
