@@ -6,7 +6,7 @@ const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
 const botconfig = require("../botconfig.json");
 const safeJsonStringify = require('safe-json-stringify');
-let yt_api_key = botconfig.yt_api_key;
+let yt_api_key = process.env.YT_TOKEN;
 //let guilds = JSON.parse(fs.readFileSync("./guild.json", "utf8"));
 
 module.exports.run = async (bot, message, args,guilds) => {
